@@ -8,12 +8,19 @@
          text-align: center;
          text-shadow: 0px 0px 15px limegreen;
          font-family: 'Courier New', Courier, monospace;
+         @keyframes fade-script {
+  0%   { opacity: 1; }  /* Start fully visible */
+  100% { opacity: 0; }  /* End completely invisible */
+}
+         h1 {
+  animation: fade-script 2s; 
+}
        }
     </style>
   </head>
   <body> 
     <h1>My first website</h1>
-    <iframe src="https://drive.google.com/file/d/1FzwzzF6YH62tzLilL5PwS9LeEDJk-0Jz/view?usp=sharing" width="500" height="500"></iframe>
+    <iframe src="" width="500" height="500"></iframe>
     <p>Welcome Viewers of my first project</p>
     
     <ul> 
@@ -25,14 +32,14 @@
       <li>Thank you for your feeback</li>
     </ol>
 
-    <button onclick="buttonClicked()">Im not a button</button>
+    <button onclick="buttonClicked()">I'm not a button</button>
 
     <script>
       let clickCount = 0;
 
       function buttonClicked() {
         clickCount = clickCount + 1;
-        alert(clickCount + ' so you di click me<⁠(⁠￣⁠︶⁠￣⁠)⁠>');
+        alert(clickCount + ' so you did click me<⁠(⁠￣⁠︶⁠￣⁠)⁠>');
       }
     </script>
   </body>
