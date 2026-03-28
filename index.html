@@ -59,7 +59,60 @@
   box-shadow: 0px 0px 25px limegreen;
   margin: 14px;
 }
- 
+ /* Modern Root Variables */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --blur: blur(12px);
+  --accent: #66a6ff;
+}
+
+/* Beautiful Animated Gradient Background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+}
+
+/* Scroll Reveal Hidden State */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+/* Scroll Reveal Active State */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
     </style>
   </head>
   <body> 
@@ -96,6 +149,27 @@
         clickCount = clickCount + 1;
         alert(clickCount + ' You knew i was not a button yet you clicked me <⁠(⁠￣⁠︶⁠￣⁠)⁠>');
       }
+      // Function to handle scroll reveal animations
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 150; // Triggers when 150px into view
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    }
+  }
+}
+
+// Listen for scroll events
+window.addEventListener("scroll", reveal);
+
+// Run once on load to show items already in view
+reveal();
+
     </script>
         </main>
       <aside>well there ain't much here yet
@@ -112,11 +186,12 @@
       For more information contact inuzukakagweya@gmail.com
       </p>
     </footer>
-    
-    <div class="ocean-container">
-  <div class="wave-layer wave-back"></div>
-  <div class="wave-layer wave-front"></div>
+
+    <div class="glass-card reveal">
+  <h2>My Beautiful Section</h2>
+  <p>This section will fade in smoothly and look like frosted glass.</p>
 </div>
+
     
   </body>
 </html>
