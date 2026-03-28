@@ -11,7 +11,7 @@
          text-align: center;
          text-shadow: 0px 0px 15px limegreen;
          font-family: 'Courier New', Courier, monospace;
-         margin: 0;
+         margin: 3;
          text-align: left;
        }
       header, footer {
@@ -25,6 +25,25 @@
          border-top: 2px solid limegreen;
          font-size: xx-small;
        }
+      .layout-container {
+         display: flex; 
+         min-height: 600px; 
+       }
+      main {
+         width: 70%;
+         padding: 30px;
+       }
+      aside {
+         width: 30%;
+         padding: 30px;
+         border-left: 2px solid limegreen;
+      }
+      .vertcal-story{
+        writing-mode: vertical-rl;
+         height: 400px; /* Vertical text needs a height limit to wrap properly */
+         border: 1px dashed limegreen;
+         padding: 10px;
+      }
          @keyframes fade-script {
   0%   { opacity: 1; } 
   100% { opacity: 0; }  
@@ -48,7 +67,13 @@
 
       <main>
     <p>Welcome Viewers of my first project<span class="cursor">_</span></p>
-    
+
+        <div class="vertical-story">
+          This text flows vertically!<br>
+          Just like a real Japanese novel.<br>
+          Perfect for choreographing your epic stories!
+        </div>
+        
     <ul> 
        <li>Made with Gemini and Father Shekinah (Daddy)</li>
     </ul>
@@ -74,6 +99,9 @@
           <li><a href="https://claude.ai/" style="color: limegreen;">Link to Claude</a></li>
         <li><a hrerf="https://gemini.google.com/" style="color: limegreen;">Link to Google gemini</li>
       </aside>
+
+    </div>
+      
     <footer>
       <p>Made with Gemini | 2026
       For more information contact inuzukakagweya@gmail.com
