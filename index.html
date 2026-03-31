@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
-    <title class="animate__animated animate__fadeIn"> My HTML Journey</title>
+    <title> My HTML Journey</title>
    
     <style> 
        body {
@@ -112,12 +112,28 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
+      .totem {
+        padding: 15px 30px;
+  font-size: 18px;
+  background-color: #ff4757;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+        background: rgba(255, 255, 255, 0.1)
+          backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px)
+        transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.totem:hover {
+  background-color: #ff6b81; /* Changes color */
+  transform: scale(1.1);    /* Makes it grow slightly */
+}
     </style>
   </head>
   <body> 
     <header>
-     <h1>MY OMNI WEBSITE</h1>
+     <h1 class="animate__animated animate__fadeIn">MY OMNI WEBSITE</h1>
     </header>
     <img src= "https://i.pinimg.com/736x/99/50/81/99508180bdc0a5ded25479594905395f.jpg" width="500" height="500" alt= "Random Profile Picture">
 
@@ -140,7 +156,7 @@ body {
       <li>Thank you for your feeback</li>
     </ol>
 
-    <button onclick="buttonClicked()">I'm not a button</button>
+    <button class="totem" onclick="buttonClicked()">I'm not a button</button>
 
     <script>
       let clickCount = 0;
