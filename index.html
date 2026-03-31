@@ -1,224 +1,264 @@
-<html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    
-    <title> My HTML Journey</title>
-   
-    <style> 
-       body {
-         background-color: black;
-         color: green;
-         text-align: center;
-         text-shadow: 0px 0px 15px limegreen;
-         font-family: 'Courier New', Courier, monospace;
-         margin: 3;
-         text-align: left;
-       }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>My HTML Journey</title>
+ 
+    <style>
+      /* ── Root Variables ── */
+      :root {
+        --glass-bg: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.2);
+        --blur: blur(12px);
+        --accent: #66a6ff;
+      }
+ 
+      /* ── Body & Animated Gradient Background ── */
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
+        text-align: left;
+      }
+ 
+      @keyframes gradient {
+        0%   { background-position: 0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+ 
+      /* ── Header & Footer ── */
       header, footer {
-         background-color: #111; 
-         padding: 20px;
-         text-align: center; 
-         border-bottom: 2px solid limegreen;
-       }
-       footer {
-         border-bottom: none;
-         border-top: 2px solid limegreen;
-         font-size: xx-small;
-       }
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 20px;
+        text-align: center;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+      }
+ 
+      footer {
+        border-bottom: none;
+        border-top: 2px solid rgba(255, 255, 255, 0.4);
+        font-size: xx-small;
+      }
+ 
+      /* ── Layout ── */
       .layout-container {
-         display: flex; 
-         min-height: 600px; 
-       }
+        display: flex;
+        min-height: 600px;
+      }
+ 
       main {
-         width: 70%;
-         padding: 30px;
-       }
+        width: 70%;
+        padding: 30px;
+      }
+ 
       aside {
-         width: 30%;
-         padding: 30px;
-         border-left: 2px solid limegreen;
+        width: 30%;
+        padding: 30px;
+        border-left: 2px solid rgba(255, 255, 255, 0.4);
       }
-      .vertcal-story{
-        writing-mode: vertical-rl;
-         height: 400px; 
-         border: 1px dashed limegreen;
-         padding: 10px;
-      }
-         @keyframes fade-script {
-  0%   { opacity: 1; } 
-  100% { opacity: 0; }  
-}
-       .cursor {
-  animation: fade-script 2s infinite;
-}
-      .japanese-text {
-  writing-mode: vertical-rl; 
-}
+ 
+      /* ── Profile Image ── */
       img {
-  border-radius: 50%;
-  box-shadow: 0px 0px 25px limegreen;
-  margin: 14px;
-}
- /* Modern Root Variables */
-:root {
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --blur: blur(12px);
-  --accent: #66a6ff;
-}
-
-/* Beautiful Animated Gradient Background */
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Glassmorphism Card Style */
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-  color: white;
-  transition: transform 0.3s ease;
-}
-
-.glass-card:hover {
-  transform: translateY(-10px); /* Lift effect on hover */
-}
-
-/* Scroll Reveal Hidden State */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-/* Scroll Reveal Active State */
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-      
+        border-radius: 50%;
+        box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.6);
+        margin: 14px;
+        display: block;
+      }
+ 
+      /* ── Blinking Cursor ── */
+      @keyframes fade-script {
+        0%   { opacity: 1; }
+        100% { opacity: 0; }
+      }
+ 
+      .cursor {
+        animation: fade-script 2s infinite;
+      }
+ 
+      /* ── Vertical Japanese Text ── */
+      .japanese-text {
+        writing-mode: vertical-rl;
+        height: 400px;
+        border: 1px dashed rgba(255, 255, 255, 0.5);
+        padding: 10px;
+      }
+ 
+      /* ── Glassmorphism Card ── */
+      .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--blur);
+        -webkit-backdrop-filter: var(--blur);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        color: white;
+        transition: transform 0.3s ease;
+      }
+ 
+      .glass-card:hover {
+        transform: translateY(-10px);
+      }
+ 
+      /* ── Scroll Reveal ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+ 
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+ 
+      /* ── Totem Button ── */
       .totem {
         padding: 15px 30px;
-  font-size: 18px;
-  background-color: #ff4757;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  cursor: pointer;
-        background: rgba(255, 255, 255, 0.1)
-          backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px)
-        transition: transform 0.7s ease, background-color 0.7s ease;
-}
-.totem:hover {
-  background-color: rgba(255, 255, 255, 0.2) /* Changes color */
-  transform: scale(1.1);    /* Makes it grow slightly */
-  backdrop-filter: var(--blur);
-}
+        font-size: 18px;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        cursor: pointer;
+        background: rgba(255, 71, 87, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        margin: 5px;
+      }
+ 
+      .totem:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+      }
+ 
+      /* ── Vibrate Button ── */
+      .Vibrator-test {
+        padding: 15px 30px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        cursor: pointer;
+        background: rgba(35, 166, 213, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+        margin: 5px;
+      }
+ 
+      .Vibrator-test:hover {
+        transform: scale(1.1);
+      }
     </style>
   </head>
-  <body> 
+ 
+  <body>
+    <!-- ── Header ── -->
     <header>
-     <h1 class="animate__animated animate__fadeIn">MY OMNI WEBSITE</h1>
+      <h1 class="animate__animated animate__fadeIn">MY OMNI WEBSITE</h1>
     </header>
-  
-
+ 
+    <!-- ── Main Layout ── -->
     <div class="layout-container">
-<img src= "https://i.pinimg.com/736x/99/50/81/99508180bdc0a5ded25479594905395f.jpg" width="500" height="500" alt= "Random Profile Picture">
+ 
+      <!-- ── Main Content ── -->
       <main>
-    <p>Welcome Viewers of my first project<span class="cursor">_</span></p>
-
+        <img
+          src="https://i.pinimg.com/736x/99/50/81/99508180bdc0a5ded25479594905395f.jpg"
+          width="200"
+          height="200"
+          alt="Random Profile Picture"
+        />
+ 
+        <p>Welcome Viewers of my first project<span class="cursor">_</span></p>
+ 
         <div class="japanese-text">
-          This text flows vertically!<br>
-          Just like a real Japanese novel.<br>
+          This text flows vertically!<br />
+          Just like a real Japanese novel.<br />
           Perfect for choreographing your epic stories!
         </div>
-        
-    <ul> 
-       <li>Made with Gemini and Father Shekinah (Daddy)</li>
-    </ul>
-    <ol>
-      <li>Im stilll looking for random thinfgs to add to this site so feel free to tell me</li>
-      <li>Thank you for your feeback</li>
-    </ol>
-
-    <button class="totem" onclick="buttonClicked()">I'm not a button</button>
-<button class="Vibrator-test" onclick="vibratedevice()">Vibrator😂</button>
-        
-    <script>
-      let clickCount = 0;
-
-      function buttonClicked() {
-        clickCount = clickCount + 1;
-        alert(clickCount + ' You knew i was not a button yet you clicked me <⁠(⁠￣⁠︶⁠￣⁠)⁠>');
-      }
-      // Function to handle scroll reveal animations
-function reveal() {
-  var reveals = document.querySelectorAll(".reveal");
-
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
-    var elementVisible = 150; // Triggers when 150px into view
-
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add("active");
-    }
-  }
-}
-
-// Listen for scroll events
-window.addEventListener("scroll", reveal);
-
-// Run once on load to show items already in view
-reveal();
-
-
-function vibratedevice()
-if (navigator.vibrate){
-navigator.vibrate (200);
-} else{
-console.log("Gomen, Senpai! This device doesn't support vibration. 😭");
-}
-    </script>
-        
-        </main>
-      <aside>well there ain't much here yet
+ 
+        <ul>
+          <li>Made with Gemini and Father Shekinah (Daddy)</li>
+        </ul>
+ 
+        <ol>
+          <li>I'm still looking for random things to add to this site so feel free to tell me</li>
+          <li>Thank you for your feedback</li>
+        </ol>
+ 
+        <button class="totem" onclick="buttonClicked()">I'm not a button</button>
+        <button class="Vibrator-test" onclick="vibrateDevice()">Vibrator 😂</button>
+      </main>
+ 
+      <!-- ── Sidebar ── -->
+      <aside>
+        <p>Well there ain't much here yet</p>
         <h2>A few common links</h2>
-      <li><a href="https://chatgpt.com/" style="color: limegreen;">Link to ChatGPT</a></li>
-      <li><a href="https://claude.ai/" style="color: limegreen;">Link to Claude</a></li>
-      <li><a href="https://gemini.google.com/" style="color: limegreen;">Link to Google gemini</a></li>
+        <ul>
+          <li><a href="https://chatgpt.com/" style="color: white;">Link to ChatGPT</a></li>
+          <li><a href="https://claude.ai/" style="color: white;">Link to Claude</a></li>
+          <li><a href="https://gemini.google.com/" style="color: white;">Link to Google Gemini</a></li>
+        </ul>
       </aside>
-
+ 
     </div>
-      
+ 
+    <!-- ── Glass Card (Scroll Reveal) ── -->
+    <div class="glass-card reveal">
+      <h2>My Beautiful Section</h2>
+      <p>This section will fade in smoothly and look like frosted glass.</p>
+    </div>
+ 
+    <!-- ── Footer ── -->
     <footer>
-      <p>Made with Gemini | 2026
-      For more information contact inuzukakagweya@gmail.com
+      <p>
+        Made with Gemini | 2026<br />
+        For more information contact inuzukakagweya@gmail.com
       </p>
     </footer>
-
-    <div class="glass-card reveal">
-  <h2>My Beautiful Section</h2>
-  <p>This section will fade in smoothly and look like frosted glass.</p>
-</div>
-
-    
+ 
+    <!-- ── Scripts ── -->
+    <script>
+      let clickCount = 0;
+ 
+      function buttonClicked() {
+        clickCount = clickCount + 1;
+        alert(clickCount + ' You knew I was not a button yet you clicked me <(￣︶￣)>');
+      }
+ 
+      // FIX: was missing { } around the function body!
+      function vibrateDevice() {
+        if (navigator.vibrate) {
+          navigator.vibrate(200);
+        } else {
+          console.log("Gomen, Senpai! This device doesn't support vibration. 😭");
+        }
+      }
+ 
+      // Scroll Reveal
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 150;
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+ 
+      window.addEventListener("scroll", reveal);
+      reveal();
+    </script>
   </body>
 </html>
