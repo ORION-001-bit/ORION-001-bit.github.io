@@ -158,7 +158,8 @@ body {
     </ol>
 
     <button class="totem" onclick="buttonClicked()">I'm not a button</button>
-
+<button class="Vibrator-test" onclick="vibratedevice()">Vibrator😂</button>
+        
     <script>
       let clickCount = 0;
 
@@ -187,7 +188,15 @@ window.addEventListener("scroll", reveal);
 // Run once on load to show items already in view
 reveal();
 
+
+function vibratedevice()
+if (navigator.vibrate){
+navigator.vibrate (200);
+} else{
+console.log("Gomen, Senpai! This device doesn't support vibration. 😭");
+}
     </script>
+        
         </main>
       <aside>well there ain't much here yet
         <h2>A few common links</h2>
