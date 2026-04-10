@@ -25,6 +25,27 @@
         color: white;
         text-align: left;
       }
+      .shine {
+        display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #6e8efb, #a777e3); /* The base color */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px; /* Rounded edges for that sleek look */
+  
+  /* The "Shiny" Effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+      .shine:hover {
+        transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(110, 142, 251, 0.4);
+  filter: brightness(1.1); /* Adds that extra shine when you hover */
+}
+        
  
       @keyframes gradient {
         0%   { background-position: 0% 50%; }
@@ -204,9 +225,9 @@
         <p>Well there ain't much here yet</p>
         <h2>A few common links</h2>
         <ul>
-          <li><a href="https://chatgpt.com/" style="color: white;">Link to ChatGPT</a></li>
-          <li><a href="https://claude.ai/" style="color: white;">Link to Claude</a></li>
-          <li><a href="https://gemini.google.com/" style="color: white;">Link to Google Gemini</a></li>
+          <li><a href="https://chatgpt.com/" style="color: white;" class="shine"> ChatGPT</a></li>
+          <li><a href="https://claude.ai/" style="color: white;" class="shine"> Claude</a></li>
+          <li><a href="https://gemini.google.com/" style="color: white;" class="shine"> Google Gemini</a></li>
         </ul>
       </aside>
  
@@ -221,7 +242,7 @@
     <!-- ── Footer ── -->
     <footer>
       <p>
-        Made with Gemini | 2026<br />
+        Partnered with Gemini  | 2026<br />
         For more information contact inuzukakagweya@gmail.com
       </p>
     </footer>
