@@ -14,46 +14,44 @@
         --blur: blur(12px);
         --accent: #66a6ff;
       }
-            body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #0d1b2a; /* Dark background to see the particles */
-        }
-
-        /* The Canvas taking up the whole screen */
-        #firefly {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 10;
-            pointer-events: none; /* Added so it doesn't block your clicks! */
-        }
-
-        /* Our recreated Fog using CSS Gradients instead of an image */
-        .fog-mask {
-            position: absolute;
-            opacity: 0.6;
-            height: 25vh;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            z-index: 30;
-            background: linear-gradient(to top, rgba(200, 220, 255, 0.8), transparent);
-            pointer-events: none; 
-        }
- 
-      /* ── Body & Animated Gradient Background ── */
+          /* ── Body & Your Beautiful Blue Animated Background ── */
       body {
         margin: 0;
         min-height: 100vh;
-        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        /* I removed overflow:hidden so you can scroll freely now! */
+        
+        /* Your new specific blue gradient palette! */
+        background: linear-gradient(-45deg, darkblue, royalblue, blue, skyblue);
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
         font-family: 'Segoe UI', sans-serif;
         color: white;
         text-align: left;
+      }
+
+      /* The Canvas taking up the whole screen */
+      #firefly {
+        position: fixed; /* Changed to fixed so particles follow you as you scroll! */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -2; /* This tucks the particles BEHIND your text, but OVER the background! */
+        pointer-events: none; 
+      }
+
+      /* Our recreated Fog using CSS Gradients instead of an image */
+      .fog-mask {
+        position: fixed; /* Changed to fixed! */
+        opacity: 0.6;
+        height: 25vh;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -1; /* Sits right above the fireflies, behind the text */
+        /* I tinted the fog slightly skyblue to match your new aesthetic! */
+        background: linear-gradient(to top, rgba(135, 206, 235, 0.8), transparent);
+        pointer-events: none; 
       }
       .shine {
         display: inline-block;
