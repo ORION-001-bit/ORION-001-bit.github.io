@@ -28,6 +28,7 @@
             width: 100vw;
             height: 100vh;
             z-index: 10;
+            pointer-events: none; /* Added so it doesn't block your clicks! */
         }
 
         /* Our recreated Fog using CSS Gradients instead of an image */
@@ -212,15 +213,12 @@
   </head>
  
   <body>
-    <!-- ── Header ── -->
     <header>
       <h1 class="animate__animated animate__fadeIn"> A multi usage website </h1>
     </header>
  
-    <!-- ── Main Layout ── -->
     <div class="layout-container">
  
-      <!-- ── Main Content ── -->
       <main>
         <img
           src="https://i.pinimg.com/736x/99/50/81/99508180bdc0a5ded25479594905395f.jpg"
@@ -229,7 +227,7 @@
           alt="Random Profile Picture"
         />
  
-        <p>My first Html creation</p><span class="cursor">_</span></p>
+        <p>My first Html creation<span class="cursor">_</span></p>
  
         <div class="japanese-text">
           This text flows vertically!<br />
@@ -250,7 +248,6 @@
         <button class="Vibrator-test" onclick="vibrateDevice()">Vibrator 😂</button>
       </main>
  
-      <!-- ── Sidebar ── -->
       <aside>
         <p>Well there ain't much here yet</p>
         <h2>A few random links</h2>
@@ -263,13 +260,11 @@
  
     </div>
  
-    <!-- ── Glass Card (Scroll Reveal) ── -->
     <div class="glass-card reveal">
       <h2>Smooth fade in</h2>
       <p>This section will fade in smoothly and look like frosted glass.</p>
     </div>
  
-    <!-- ── Footer ── -->
     <footer>
       <p>
         Partnered with Gemini  | 2026<br />
@@ -277,10 +272,6 @@
       </p>
     </footer>
  
-    <!-- ── Scripts ── -->
-    <script>
-
-      
     <canvas id="firefly"></canvas>
     <div class="fog-mask"></div>
 
@@ -353,6 +344,7 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });
+
       let clickCount = 0;
  
       function buttonClicked() {
@@ -360,7 +352,6 @@
         alert(clickCount + ' You knew I was not a button yet you clicked me <(￣︶￣)>');
       }
  
-      // FIX: was missing { } around the function body!
       function vibrateDevice() {
         if (navigator.vibrate) {
           navigator.vibrate(200);
