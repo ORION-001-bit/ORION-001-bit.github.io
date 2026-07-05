@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -5,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="icon" type="image/png" href="favicon.png">
     <title>What I can currently do in HTML</title>
- 
+
     <style>
       /* ── Root Variables ── */
       :root {
@@ -14,74 +15,72 @@
         --blur: blur(12px);
         --accent: #66a6ff;
       }
-          /* ── Body & Your Beautiful Blue Animated Background ── */
+
+      /* ── Body & Your Beautiful Blue Animated Background ── */
       body {
         margin: 0;
         min-height: 100vh;
-        /* I removed overflow:hidden so you can scroll freely now! */
-        
-        /* Your new specific blue gradient palette! */
         background: linear-gradient(-45deg, darkblue, royalblue, blue, skyblue);
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
         font-family: 'Segoe UI', sans-serif;
         color: white;
         text-align: left;
+        overflow-x: hidden; /* Prevents unwanted horizontal scrolling! */
       }
 
       /* The Canvas taking up the whole screen */
       #firefly {
-        position: fixed; /* Changed to fixed so particles follow you as you scroll! */
+        position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        z-index: -2; /* This tucks the particles BEHIND your text, but OVER the background! */
+        z-index: -2;
         pointer-events: none; 
       }
 
-      /* Our recreated Fog using CSS Gradients instead of an image */
+      /* Our recreated Fog using CSS Gradients */
       .fog-mask {
-        position: fixed; /* Changed to fixed! */
+        position: fixed;
         opacity: 0.6;
         height: 25vh;
         left: 0;
         bottom: 0;
         width: 100%;
-        z-index: -1; /* Sits right above the fireflies, behind the text */
-        /* I tinted the fog slightly skyblue to match your new aesthetic! */
+        z-index: -1;
         background: linear-gradient(to top, rgba(135, 206, 235, 0.8), transparent);
         pointer-events: none; 
       }
+
+      /* ── Shiny Buttons ── */
       .shine {
         display: inline-block;
-  padding: 15px 30px;
-  background: linear-gradient(135deg, #6e8efb, #a777e3); /* The base color */
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 50px; /* Rounded edges for that sleek look */
-  border: 2px  solid #6e8efb;
-  /* The "Shiny" Effect */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
+        padding: 12px 25px;
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 50px;
+        border: 2px solid #6e8efb;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
       .shine:hover {
         transform: translateY(-3px);
         background-color: transparent;
-  box-shadow: 0 6px 20px rgba(110, 142, 251, 0.4);
-  filter: brightness(1.1); /* Adds that extra shine when you hover */
-}
+        box-shadow: 0 6px 20px rgba(110, 142, 251, 0.4);
+        filter: brightness(1.1);
+      }
         
- 
       @keyframes gradient {
         0%   { background-position: 0% 50%; }
         50%  { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
- 
+
       /* ── Header & Footer ── */
       header, footer {
         background-color: rgba(0, 0, 0, 0.4);
@@ -89,30 +88,99 @@
         text-align: center;
         border-bottom: 2px solid rgba(255, 255, 255, 0.4);
       }
- 
+
       footer {
         border-bottom: none;
         border-top: 2px solid rgba(255, 255, 255, 0.4);
         font-size: xx-small;
       }
- 
+
       /* ── Layout ── */
       .layout-container {
         display: flex;
         min-height: 600px;
+        justify-content: center; /* Centers the main content! */
       }
- 
+
+      /* Upgraded Main: Now takes full width comfortably! */
       main {
-        width: 70%;
+        width: 100%;
+        max-width: 900px;
         padding: 30px;
       }
- 
+
+      /* ── FLOATING DRAWER TOGGLE BUTTON ── */
+      .drawer-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        padding: 12px 22px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 30px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .drawer-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(110, 142, 251, 0.6);
+      }
+
+      /* ── THE SIDE DRAWER (Upgraded Aside!) ── */
       aside {
-        width: 30%;
-        padding: 30px;
-        border-left: 2px solid rgba(255, 255, 255, 0.4);
+        position: fixed;
+        top: 0;
+        right: -350px; /* Hidden off-screen by default! */
+        width: 300px;
+        height: 100vh;
+        padding: 60px 25px 25px 25px;
+        background: rgba(10, 10, 40, 0.75); /* Deep frosted glass */
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-left: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        z-index: 1001; /* Sits above everything! */
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Sleek anime slide! */
+        overflow-y: auto;
       }
- 
+
+      /* When this class is added by JS, it slides into view! */
+      aside.open {
+        right: 0;
+      }
+
+      /* Close Button inside the Drawer */
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, color 0.2s ease;
+      }
+      .close-btn:hover {
+        transform: scale(1.2) rotate(90deg);
+        color: #ff4757;
+      }
+
+      /* Drawer list styling so buttons don't overlap */
+      aside ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+      aside ul li {
+        margin: 20px 0;
+      }
+
       /* ── Profile Image ── */
       img {
         border-radius: 50%;
@@ -120,17 +188,17 @@
         margin: 14px;
         display: block;
       }
- 
+
       /* ── Blinking Cursor ── */
       @keyframes fade-script {
         0%   { opacity: 1; }
         100% { opacity: 0; }
       }
- 
+
       .cursor {
         animation: fade-script 2s infinite;
       }
- 
+
       /* ── Vertical Japanese Text ── */
       .japanese-text {
         writing-mode: vertical-rl;
@@ -138,7 +206,7 @@
         border: 1px dashed rgba(255, 255, 255, 0.5);
         padding: 10px;
       }
- 
+
       /* ── Glassmorphism Card ── */
       .glass-card {
         background: var(--glass-bg);
@@ -147,28 +215,29 @@
         border: 1px solid var(--glass-border);
         border-radius: 20px;
         padding: 2rem;
-        margin: 20px;
+        margin: 20px auto;
+        max-width: 860px;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
         color: white;
         transition: transform 0.3s ease;
       }
- 
+
       .glass-card:hover {
         transform: translateY(-10px);
       }
- 
+
       /* ── Scroll Reveal ── */
       .reveal {
         opacity: 0;
         transform: translateY(30px);
         transition: all 0.8s ease-out;
       }
- 
+
       .reveal.active {
         opacity: 1;
         transform: translateY(0);
       }
- 
+
       /* ── Totem Button ── */
       .totem {
         padding: 15px 30px;
@@ -183,12 +252,12 @@
         transition: transform 0.3s ease, background-color 0.3s ease;
         margin: 5px;
       }
- 
+
       .totem:hover {
         background-color: rgba(255, 255, 255, 0.2);
         transform: scale(1.1);
       }
- 
+
       /* ── Vibrate Button ── */
       .Vibrator-test {
         padding: 15px 30px;
@@ -203,20 +272,22 @@
         transition: transform 0.3s ease;
         margin: 5px;
       }
- 
+
       .Vibrator-test:hover {
         transform: scale(1.1);
       }
     </style>
   </head>
- 
+
   <body>
     <header>
-      <h1 class="animate__animated animate__fadeIn"> A multi usage website </h1>
+      <h1 class="animate__animated animate__fadeIn"> A multi-use website </h1>
     </header>
- 
+
+    <!-- 🌟 NEW: Floating Button to open the Side Drawer! 🌟 -->
+    <button class="drawer-toggle" onclick="toggleDrawer()">☰ AI Links</button>
+
     <div class="layout-container">
- 
       <main>
         <img
           src="https://i.pinimg.com/736x/99/50/81/99508180bdc0a5ded25479594905395f.jpg"
@@ -224,132 +295,133 @@
           height="800"
           alt="Random Profile Picture"
         />
- 
-        <p>My first Html creation<span class="cursor">_</span></p>
- 
+
+        <p>My first HTML creation<span class="cursor">_</span></p>
+
         <div class="japanese-text">
           This text flows vertically!<br />
           Just like a real Japanese novel.<br />
           Perfect for choreographing your epic stories!
         </div>
- 
+
         <ul>
           <li>A list that says......nothing</li>
         </ul>
- 
+
         <ol>
-          <li>I'm still looking for random things to add to this site so feel free to tell me</li>
-          <li>Thank you for your feedback</li>
+          <li>I'm still looking for random things to add to this site, so feel free to tell me!</li>
+          <li>Thank you for your feedback!</li>
         </ol>
- 
+
         <button class="totem" onclick="buttonClicked()">I'm not a button</button>
         <button class="Vibrator-test" onclick="vibrateDevice()">Vibrator 😂</button>
       </main>
- 
-      <aside>
-        <p>Well there ain't much here yet</p>
+
+      <!-- 🌟 UPGRADED: Now a Sleek Side Drawer! 🌟 -->
+      <aside id="side-drawer">
+        <button class="close-btn" onclick="toggleDrawer()">×</button>
+        <p>Well, there ain't much here yet!</p>
         <h2>A few random links</h2>
         <ul>
-          <li><a href="https://chatgpt.com/" style="color: white;" class="shine"> ChatGPT</a></li>
-          <li><a href="https://claude.ai/" style="color: white;" class="shine"> Claude</a></li>
-          <li><a href="https://gemini.google.com/" style="color: white;" class="shine"> Google Gemini</a></li>
+          <li><a href="https://chatgpt.com/" class="shine"> ChatGPT</a></li>
+          <li><a href="https://claude.ai/" class="shine"> Claude</a></li>
+          <li><a href="https://gemini.google.com/" class="shine"> Google Gemini</a></li>
         </ul>
       </aside>
- 
     </div>
- 
+
     <div class="glass-card reveal">
       <h2>Smooth fade in</h2>
       <p>This section will fade in smoothly and look like frosted glass.</p>
     </div>
- 
+
     <footer>
       <p>
         Partnered with Gemini  | 2026<br />
-        For more information contact inuzukakagweya@gmail.com
+        For more information, contact inuzukakagweya@gmail.com
       </p>
     </footer>
- 
+
     <canvas id="firefly"></canvas>
     <div class="fog-mask"></div>
 
     <script>
-        const canvas = document.getElementById('firefly');
-        const ctx = canvas.getContext('2d');
+      // 🌟 NEW: The JavaScript function to open and close your drawer! 🌟
+      function toggleDrawer() {
+        const drawer = document.getElementById('side-drawer');
+        drawer.classList.toggle('open');
+      }
+
+      const canvas = document.getElementById('firefly');
+      const ctx = canvas.getContext('2d');
         
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particlesArray = [];
+      const numberOfParticles = 100;
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 3 + 1;
+          this.speedX = Math.random() * 1 - 0.5;
+          this.speedY = Math.random() * -1 - 0.5;
+          this.opacity = Math.random() * 0.5 + 0.5;
+        }
+            
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          if (this.y < 0) {
+            this.y = canvas.height;
+            this.x = Math.random() * canvas.width;
+          }
+        }
+            
+        draw() {
+          ctx.fillStyle = `rgba(173, 216, 230, ${this.opacity})`;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+                
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = "rgba(173, 216, 230, 1)";
+        }
+      }
+
+      function init() {
+        for (let i = 0; i < numberOfParticles; i++) {
+          particlesArray.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particlesArray.length; i++) {
+          particlesArray[i].update();
+          particlesArray[i].draw();
+        }
+        requestAnimationFrame(animate);
+      }
+
+      init();
+      animate();
+
+      window.addEventListener('resize', function() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-
-        const particlesArray = [];
-        const numberOfParticles = 100; // Adjust for more or less particles!
-
-        // Create the Firefly Class
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1; // Random size
-                this.speedX = Math.random() * 1 - 0.5; // Float left/right
-                this.speedY = Math.random() * -1 - 0.5; // Float upwards
-                this.opacity = Math.random() * 0.5 + 0.5;
-            }
-            
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                // If particle floats off the top, reset it to the bottom
-                if (this.y < 0) {
-                    this.y = canvas.height;
-                    this.x = Math.random() * canvas.width;
-                }
-            }
-            
-            draw() {
-                ctx.fillStyle = `rgba(173, 216, 230, ${this.opacity})`; // Light blue color
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-                
-                // Add a little glow
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = "rgba(173, 216, 230, 1)";
-            }
-        }
-
-        // Initialize
-        function init() {
-            for (let i = 0; i < numberOfParticles; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-
-        // Animation Loop
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-            }
-            requestAnimationFrame(animate);
-        }
-
-        init();
-        animate();
-
-        // Handle Window Resize
-        window.addEventListener('resize', function() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+      });
 
       let clickCount = 0;
- 
+
       function buttonClicked() {
         clickCount = clickCount + 1;
         alert(clickCount + ' You knew I was not a button yet you clicked me <(￣︶￣)>');
       }
- 
+
       function vibrateDevice() {
         if (navigator.vibrate) {
           navigator.vibrate(200);
@@ -357,8 +429,7 @@
           console.log("Gomen, Senpai! This device doesn't support vibration. 😭");
         }
       }
- 
-      // Scroll Reveal
+
       function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
@@ -370,7 +441,7 @@
           }
         }
       }
- 
+
       window.addEventListener("scroll", reveal);
       reveal();
     </script>
